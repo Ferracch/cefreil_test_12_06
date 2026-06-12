@@ -9,7 +9,7 @@ protected:
     }
 
     void TearDown() override {
-        db.Disconnect();
+        delete pair; // Clean-up
     }
 };
 
@@ -30,11 +30,11 @@ TEST(ConfigParserTest, ParseValidLine) {
  
 // TODO STUDENTE 1: Testa cosa succede se la linea non contiene il carattere '=' (es. "invalidline")
 // Assicurati che restituisca nullptr. Aggiungi un messaggio personalizzato in caso di fallimento.
-TEST(DatabaseTest, ParseLineWithoutEqualsSignReturnsNull) {
+TEST_F(DatabaseTest, ParseLineWithoutEqualsSignReturnsNull) {
     // IL TUO CODICE QUI
  
     EXPECT_EQ(pair, nullptr) << "Il parsing di una linea senza '=' non deve restituire un puntatore valido";
-    delete pair; // Clean-up, anche se in questo caso pair dovrebbe essere nullptr, è buona pratica
+
 }
  
 // TODO STUDENTE 2: Testa il parsing di una linea vuota "".
