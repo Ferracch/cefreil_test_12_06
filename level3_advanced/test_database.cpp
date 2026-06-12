@@ -20,7 +20,7 @@ protected:
 
 // TODO STUDENTE 1: Usando TEST_F, scrivi un test che verifichi l'utente "admin".
 TEST_F(DatabaseTest, RetrievesExistingAdmin) {
-    User* user = db.GetUser("admin");
+    UserRecord* user = db.GetUser("admin");
     ASSERT_NE(user, nullptr);
     EXPECT_EQ(user->id, 1);
     EXPECT_EQ(user->role, "administrator");
@@ -28,7 +28,7 @@ TEST_F(DatabaseTest, RetrievesExistingAdmin) {
 
 // TODO STUDENTE 2: Usando TEST_F, scrivi un test che verifichi l'utente "guest".
 TEST_F(DatabaseTest, RetrievesExistingGuest) {
-    User* user = db.GetUser("guest");
+    UserRecord* user = db.GetUser("guest");
     ASSERT_NE(user, nullptr);
     EXPECT_EQ(user->id, 2);
     EXPECT_EQ(user->role, "visitor");
@@ -46,6 +46,6 @@ TEST_F(DatabaseTest, UnknownUserReturnsNull) {
 // restituisca nullptr (il DB non deve rispondere se non e' connesso).
 TEST_F(DatabaseTest, GetUserFailsWhenDisconnected) {
     db.Disconnect();
-    User* user = db.GetUser("admin");
+    UserRecord* user = db.GetUser("admin");
     EXPECT_EQ(user, nullptr);
 }
