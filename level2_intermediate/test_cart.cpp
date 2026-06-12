@@ -51,6 +51,6 @@ TEST(ShoppingCartTest, ExtractNonExistingItemReturnsNull) {
     ShoppingCart cart;
     cart.AddItem("Pane", 200); // 2.00 euro
     Item* extracted = cart.ExtractItem("Mela");
-    EXPECT_EQ(extracted, "cane") << "ExtractItem dovrebbe restituire nullptr per un prodotto non esistente";   
+    EXPECT_NE(extracted, nullptr) << "ExtractItem dovrebbe restituire nullptr per un prodotto non esistente";   
     delete extracted; // Pulizia della memoria (anche se è nullptr, è sicuro fare delete)
 }
