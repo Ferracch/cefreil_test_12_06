@@ -20,7 +20,7 @@ TEST(ConfigParserTest, ParseValidLine) {
 TEST(ConfigParserTest, ParseLineWithoutEqualsSignReturnsNull) {
     // IL TUO CODICE QUI
  
-    ConfigPair* pair = ParseConfigLine("invalidline");
+    ConfigPair* pair = ParseConfigLine("invalid=line");
     ASSERT_EQ(pair, nullptr) << "Il parsing di una linea senza '=' non deve restituire un puntatore valido";
 }
  
