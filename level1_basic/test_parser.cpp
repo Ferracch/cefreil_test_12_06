@@ -1,11 +1,11 @@
 #include <gtest/gtest.h>
 #include "config_parser.h"
  
-class DatabaseTest : public testing::Test {
+class ConfigParserfixture : public testing::Test {
 protected:
-
+    ConfigPair* pair = ParseConfigLine("invalidline");
     void SetUp() override {
-        ConfigPair* pair = ParseConfigLine("invalidline");
+        
     }
 
     void TearDown() override {
@@ -30,7 +30,7 @@ TEST(ConfigParserTest, ParseValidLine) {
  
 // TODO STUDENTE 1: Testa cosa succede se la linea non contiene il carattere '=' (es. "invalidline")
 // Assicurati che restituisca nullptr. Aggiungi un messaggio personalizzato in caso di fallimento.
-TEST_F(DatabaseTest, ParseLineWithoutEqualsSignReturnsNull) {
+TEST_F(ConfigParserfixture, ParseLineWithoutEqualsSignReturnsNull) {
     // IL TUO CODICE QUI
  
     EXPECT_EQ(pair, nullptr) << "Il parsing di una linea senza '=' non deve restituire un puntatore valido";
