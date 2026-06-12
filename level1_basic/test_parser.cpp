@@ -3,9 +3,9 @@
  
 class ConfigParserfixture : public testing::Test {
 protected:
-    ConfigPair* pair = ParseConfigLine("invalidline");
+ConfigPair* pair;
     void SetUp() override {
-        
+        pair= ParseConfigLine("invalidline");
     }
 
     void TearDown() override {
