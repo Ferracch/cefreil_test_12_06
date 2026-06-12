@@ -37,7 +37,7 @@ TEST_F(DatabaseTest, RetrievesExistingGuest) {
 // TODO STUDENTE 3: Usando TEST_F, scrivi un test che prova a recuperare un utente 
 // non esistente (es. "hacker") e verifica che il risultato sia nullptr.
 TEST_F(DatabaseTest, UnknownUserReturnsNull) {
-    User* user = db.GetUser("hacker");
+    UserRecord* user = db.GetUser("hacker");
     EXPECT_EQ(user, nullptr);
 }
 
