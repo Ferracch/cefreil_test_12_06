@@ -20,7 +20,7 @@ TEST(ConfigParserTest, ParseValidLine) {
 TEST(ConfigParserTest, ParseLineWithoutEqualsSignReturnsNull) {
     // IL TUO CODICE QUI
  
-    ConfigPair* pair = ParseConfigLine("invalid=line");
+    ConfigPair* pair = ParseConfigLine("invalidSline");
     EXPECT_EQ(pair, nullptr) << "Il parsing di una linea senza '=' non deve restituire un puntatore valido";
     delete pair; // Clean-up, anche se in questo caso pair dovrebbe essere nullptr, è buona pratica
 }

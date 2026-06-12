@@ -33,6 +33,12 @@ TEST(ShoppingCartTest, CalculatesTotalForMultipleItems) {
 // Ricordati di fare delete del puntatore estratto!
 TEST(ShoppingCartTest, ExtractsExistingItemCorrectly) {
     // IL TUO CODICE QUI
+    ShoppingCart cart;
+    cart.AddItem("Latte", 300); // 3.00 euro
+    ConfigItem* extracted = cart.ExtractItem("Latte");
+    ASSERT_NE(extracted, nullptr) << "ExtractItem dovrebbe restituire un puntatore";
+    EXPECT_EQ(extracted->name, "Latte") << "Il nome dell'articolo è sbagliato";
+    EXPECT_EQ(extracted->price_cents, 300) << "Il prezzo dell'articolo è sbagliato";
 }
 
 // TODO STUDENTE 3: Testa l'estrazione di un prodotto NON esistente.
