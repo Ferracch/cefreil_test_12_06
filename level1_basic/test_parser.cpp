@@ -36,4 +36,10 @@ TEST(ConfigParserTest, ParseEmptyLineReturnsNull) {
 // (es. stringhe con spazi, caratteri speciali). Usa EXPECT_EQ confrontando con true/false.
 TEST(KeyValidationTest, ValidatesKeyCharactersCorrectly) {
     // IL TUO CODICE QUI
+    EXPECT_EQ(IsValidKeyName("validKey123"), true);
+    EXPECT_EQ(IsValidKeyName("anotherValidKey"), true);
+    EXPECT_EQ(IsValidKeyName("keyWithNumbers456"), true);
+    EXPECT_EQ(IsValidKeyName("invalid key with spaces"), false);
+    EXPECT_EQ(IsValidKeyName("invalid-key-with-dash"), false);
+    EXPECT_EQ(IsValidKeyName("invalidKeyWithSpecialChar!"), false);
 }
